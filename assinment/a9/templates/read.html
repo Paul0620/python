@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search List</title>
+  </head>
+  <body>
+    <center style="text-align: center; padding: 20px 0 100px; margin: auto;">
+      <header>
+        <h1 style="padding-bottom: 10px;">Search List</h1>
+        <h3>Found {{resultsNumber}} results for: {{searchingBy}}</h3>
+        <button><a href="/export?word={{searchingBy}}" style="color: black; text-decoration: none;">Download to CSV</a></button>
+        <button><a href="/" style="text-decoration: none;">메인페이지</a></button>
+      </header>
+    </center>
+    <div style="padding: 0 350px;">
+      {% for job in jobs %}
+        {% for job in job %}
+          <div style="padding-bottom: 20px;">
+            <h3>{{job.title}}</h3>
+            <h3>{{job.company}}</h3>
+            <h4><a href="{{job.link}}" target="_blank" style="color: blue; text-decoration: none;">Apply</a></h4>
+            <hr>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </body>
+</html>
